@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+Listado de tickets
+{% endblock %}
+
+{% block content %}
+
+<h1>Listado de tickets</h1>
+
+<ul>
+{% for ticket in tickets %}
+    <li>
+        <div class="el"><a href="{% url ticket-detalle ticket.id %}">
+                        {{ticket}}
+                        </a></div>
+        <div class="el" >Autor: {{ticket.autor}}</div>
+        <div class="el" >Descripción: {{ticket.descripcion|truncatewords:"5"}}</div>
+        <div class="el" >Proyecto: {{ticket.proyecto}}</div>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

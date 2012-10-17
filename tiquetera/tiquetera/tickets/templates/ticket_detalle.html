@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ticket}}
+{% endblock %}
+
+{% block content %}
+
+{% url ticket-detalle ticket.id as ticket_url %}
+
+
+<h1><a href="{{ticket_url}}">{{ticket}}</a></h1>
+<h2><a href="{% url ticket-editar ticket.id %}">Editar</a></h2>
+
+<h2>Estado: {{ticket.get_estado_display}}</h2>
+
+<div class="el" >Autor: {{ticket.autor}}</div>
+<div class="el" >Descripción: {{ticket.descripcion|truncatewords:"5"}}</div>
+<div class="el" >Proyecto: {{ticket.proyecto}}</div>
+<div class="el" >Fecha de creación: {{ticket.fecha_creacion}}</div>
+<div class="el" >Asignado a: {{ticket.asignado_a|default:"Nadie"}}</div>
+
+{% endblock %}

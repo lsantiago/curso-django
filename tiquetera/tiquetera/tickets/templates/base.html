@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %} Ticketera {% endblock %}</title>
+    <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.min.css">
+    <script type="text/javascript" src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+
+    <style>
+    </style>
+</head>
+<body>
+<div class="row">
+    <div class="span5 offset1"><a href="/">Inicio</a></div>
+</div>
+<div class="row">
+    <div class="span5 offset1">
+    {% block content %}
+    {% endblock %}
+    </div>
+</div>
+</body>
+</html>
