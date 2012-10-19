@@ -19,11 +19,9 @@ Django, el curso
 	- Lenguaje
 	- RequestContext y Contextos
 
-
 - Vistas
 	
-	- Patrones
-	- 
+	- introduccion
 	- requests y response
 	- Shortcuts
 		render_to_response	
