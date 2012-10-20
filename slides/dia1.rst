@@ -20,6 +20,7 @@ Quién
 - Ingeniero en Computación - Universidad Nacional de Córdoba, Argentina
 - Hincha de Boca Jr.
 - Python desde 2007, Django desde 2010
+- Miembro de Python Argentina www.python.org.ar
 - Creando Phasety (phasety.com) y trabajando en Machinalis (machinalis.com)
 - Contactos:
 
@@ -191,7 +192,6 @@ A practicar!
     In [2]: saludo = 'Ubyn Ybwn!'
 
     In [3]: print saludo.decode('rot13')
-
 
 
 ----
@@ -409,8 +409,8 @@ Vayamos a la web!
 A dónde?
 =========
 
-- La web usa el protocolo ``http``
-- Peticiones y respuestas
+- La web usa el protocolo ``HTTP``
+- Peticiones y respuestas...
 - Entre un cliente y un servidor
 
 .. image: static/img/img_HTTP_request.png
@@ -426,8 +426,8 @@ Mediante métodos, cabecera y parámetros (datos). Importantes:
 - ``GET`` (pedir)
 - ``POST`` (modificar)
 
-- En general cuando uno *entra* a una página es un ``GET`` y cuando
-  envia un formulario hace un ``POST``.
+- En general cuando uno *entra* a una página hace ``GET`` y cuando
+  envia un formulario hace ``POST``.
 
 ----
 
@@ -435,27 +435,26 @@ Respuestas (*responses*)
 ===========================
 
 - Código, Cabecera y Datos
-- Datos: cualquier cosa
 
-  * html, json, fotos, videos de goles de Messi ;-), etc.
+    ``200 OK``, ``404 Not Found``
 
-Conocen ?
+- Hypertext Transfer? Ahora es cualquier cosa!
 
-- 200 OK
-- Error 404
+  * html, json, fotos, videos de goles de Messi, etc.
 
 ----
 
-Entonces: Django
-================
+Entonces: Django!
+=================
+
 
 .. image:: static/img/django.jpg
    :align: center
 
 -----
 
-Claves de Django
-==================
+Claves
+=======
 
 * Framework: caja de legos!
 * DRY
@@ -488,9 +487,8 @@ Visualización de la información
 
 ----
 
-Qué hay en las baterías
+¿Qué hay en las baterías?
 =========================
-
 
 - Interacción con base de datos relacionales
 - Abstracción ORM
@@ -504,14 +502,104 @@ Qué hay en las baterías
 
 ----
 
-Engrasemosnos las manos!
+¡Engrasemosnos las manos!
 =========================
 
 - Objetivo: un sitio para manejar tickets (*bugs*, por ejemplo)
-- Un ticket tiene un número, un estado, una fecha, una título y descripción
+- Lo llamaremos "La Tiquetera"
+
+----
+
+Comenzar un proyecto
+====================
+
+Proyecto?
+
+    Conjunto de aplicaciones y configuraciones para un sitio en particular
+
+::
+
+    $ django-admin.py startproject tiquetera
+
+.. image: static/img/project.png
+   :align: center
+
+-----
+
+Con una aplicación
+==================
+
+Aplicación?:
+
+    - Una aplicación web que hace una tarea en particular (*weblog*, *encuesta*, etc)
+    - Un proyecto puede tener muchas *apps*.
+    - Una aplicación puede ser parte de distintos proyectos (son *pluggables*)
+
+::
+    $ cd tiquetera
+    $ django-admin.py startproject tiquetera
+
+----
+
+Algunos comandos
+================
+
+``django-admin.py`` y ``manage.py``:
+
+* ``startproject``
+* ``startapp``
+* ``runserver``: servidor de desarrollo
+* ``shell``
+* ``test``
+* ``syncdb``: crea tablas según modelos
+* ``dumpdata`` y ``loaddata``
+* ``inspectdb`` para bases de datos existentes
+
+``./manage.py help [comando]``
+
+----
+
+Settings
+========
+
+El archivo ``settings.py``:
+
+* Contiene la configuración del proyecto
+    * conf de base de datos
+    * Idioma
+    * ``STATIC_URL`` y ``STATIC_ROOT``
+    * aplicaciones instaladas
+    * etc.
+
+----
+
+El nuestro
+==========
+.. sourcecode: python
+
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite',
+        ...
+
+    INSTALLED_APPS = (
+        ...
+        'django.contrib.admin',
+        'tiquetera.tickets',)
+
+----
+
+Volvamos a la tiquetera
+========================
+
+Requerimientos
+---------------
+
+- Un ticket tiene un #ID, un estado, una fecha, una título y descripción
   y posiblemente un responsable
 - Queremos ver listados de tickets, su detalle, cargar nuevos,
-  cambiarles el estado, etc.
+  cambiarles el estado, asignarles responsable.
 
 ----
 
@@ -537,12 +625,15 @@ Modelando
         estado = models.CharField(max_length=2, choices=ESTADOS)
 ----
 
-Husmeemos que pasa
-==================
-
-**¡Magia ORM! ** ::
+Construyamos la base
+=====================
 
     $ python manage.py syncdb
+
+----
+
+¡Magia ORM!
+===========
 
 .. sourcecode:: sql
 
@@ -600,7 +691,7 @@ Interfaz ABM (CRUD)
 
 * Muy configurable
 * Fácil de extender
-* No es bala de plata!
+* ¡Pero no es la bala de plata!
 
 ----
 
