@@ -2,11 +2,15 @@
 Django, el framework para perfeccionistas
 ==========================================
 
-- Taller Introductorio
+**Taller Introductorio**
 
-- Atica iSummit 2012
+:autor: Martín Gaitán
+:conferencia: Atica iSummit 2012
+:lugar: Loja, Ecuador
+:fecha: Lunes 22 de octubre, 2012
 
--  `Creative Commons Atribución-CompartirIgual <http://creativecommons.org/licenses/by-sa/3.0/deed.es_AR>`_
+|
+|
 
 .. image:: static/img/cc_by_sa-3.png
 
@@ -20,11 +24,10 @@ Quién
 - Ingeniero en Computación - Universidad Nacional de Córdoba, Argentina
 - Hincha de Boca Jr.
 - Python desde 2007, Django desde 2010
-- Miembro de Python Argentina www.python.org.ar
+- Miembro de Python Argentina (python.org.ar)
 - Creando Phasety (phasety.com) y trabajando en Machinalis (machinalis.com)
-- Contactos:
 
-    @tin_nqn_ | gaitan@gmail.com | http://mgaitan.github.com
+    @tin_nqn_   gaitan@gmail.com  http://mgaitan.github.com
 
 ----
 
@@ -47,18 +50,21 @@ Qué
 Cómo
 ======
 
-- Es un curso taller
+- Es un minicurso-taller
 - En los talleres nos engrasamos las manos **¡Eso es muy bueno!**
 
-    - Haremos una pequeña aplicación web con Django!
+    - Haremos un pequeño proyecto
 
-- Trabajamos en equipos ?
-- Pocos slides, más explicaciones.
+- ¿Trabajamos en equipos ?
+- Más explicaciones que diapositivas
 - Pueden preguntarme en cualquier momento / Puedo no saber responder de inmediato.
 
-.. warning::
+----
 
-    A veces hablo mucho. ;)
+Warning
+===========
+
+    A veces hablo mucho. :-/
 
 
 ----
@@ -82,9 +88,6 @@ Bajo licencias Creative Commons by-sa
 Empezamos ?
 ============
 
-A todo esto, ¿Qué es Python?
-+++++++++++++++++++++++++++++
-
 .. epigraph::
 
     El canónico *"Python es un gran primer lenguaje"* suscitó
@@ -92,33 +95,29 @@ A todo esto, ¿Qué es Python?
 
     -- Noah Spurrier
 
+.. image:: static/img/python-powered.png
+   :align: center
+   :height: 244px
+   :width: 165px
+
 ----
 
 En serio, qué es Python ?
 ===========================
 
-.. image:: static/img/python-powered.png
-   :align: right
-
-* Un lenguaje de alto nivel
-
-    * (muy) Fácil de aprender
-    * con sintáxis legible y expresiva
-    * Multiplataforma
-    * Multiparadigma
-    * Dinámico
-    * Fuertemente tipado
-    * Interpretado
-    * Interactivo
-    * Extensible
-    * Libre, Gratis y amigable comercialmente
-    * Con las baterías incluídas
-    * Con gran documentación
-    * y una maravillosa comunidad de usuarios
+* Un lenguaje de muy alto nivel
+* (muy) Fácil de aprender, con sintáxis legible y expresiva
+* Multiplataforma Multiparadigma
+* Interactivo, Interpretado y Dinámico (pero fuertemente tipado)
+* Extensible
+* Libre, Gratis y amigable comercialmente
+* Con las baterías incluídas (y grandes aplicaciones)
+* Con gran documentación
+* y una maravillosa comunidad de usuarios
 
 ----
 
-Quien lo usa
+Quién lo usa
 =============
 
 .. epigraph::
@@ -132,12 +131,11 @@ Quien lo usa
 En serio
 ++++++++
 
-    - Google
-    - NASA
-    - Mozilla
-    - Las empresas donde trabajo
-    - http://wiki.python.org/moin/OrganizationsUsingPython
-    - Ustedes!
+- Google
+- NASA
+- Mozilla
+- Las empresas donde trabajo
+- Ustedes!
 
 ----
 
@@ -150,7 +148,7 @@ Para qué sirve Python
 - Juegos
 - Procesamiento de texto y lenguaje
 - Interfaz entre distintos lenguajes
-- Mucho mucho más...
+- Mucho, mucho más...
 - Y la combinación de todas ellas
 
 ----
@@ -158,14 +156,23 @@ Para qué sirve Python
 Tan fácil de aprender?
 ========================
 
-- Ejecutar la consola interactiva y hacer una suma::
+- Podemos explorar la respuesta.
+- Ejecutar la consola interactiva
+
+.. sourcecode:: python
 
     $ python
     Python 2.7.3 (default, Aug  1 2012, 05:14:39)
     [GCC 4.6.3] on linux2
     Type "help", "copyright", "credits" or "license" for more information.
+    >>>
 
-- Pero mejor ``ipython`` ::
+----
+
+Pero mejor ``ipython``
+======================
+
+.. sourcecode:: bash
 
     $ ipython
     Python 2.7.3 (default, Aug  1 2012, 05:14:39)
@@ -179,9 +186,11 @@ Tan fácil de aprender?
 
     In [1]:
 
+- Nuestros aliados: ``<tab>`` y ``?``
+
 ----
 
-A practicar!
+¡A practicar!
 =============
 
 .. sourcecode:: python
@@ -191,10 +200,24 @@ A practicar!
 
     In [2]: saludo = 'Ubyn Ybwn!'
 
-    In [3]: print saludo.decode('rot13')
+    In [3]: print saludo.decode('rot13') # que sucede?
 
+    In [4]: import this   # y esto?
 
 ----
+
+Dijimos **muy** alto nivel
+===========================
+
+Python trae potentes estructuras de datos *built-in*
+
+    * Listas: contenedor ordenado de objectos
+    * Tuplas: simil a listas pero *inmutables*
+    * Diccionarios: mapas clave-valor
+    * Conjuntos: objetos unicos, no ordenado
+    * y más!
+
+-----
 
 Listas
 =======
@@ -242,8 +265,9 @@ Diccionarios
 Bucles
 =======
 
-.. sourcecode:: python
+- No hacen falta índices
 
+.. sourcecode:: python
 
     >>> bichos = ["pulgas", "piojos"]
     >>> for bich in bichos:
@@ -251,6 +275,7 @@ Bucles
     ...
     Mata-pulgas
     Mata-piojos
+
 
 ----
 
@@ -271,12 +296,12 @@ If
 - operadores: ``or``, ``and``, ``not``
 - comparadores: ``< > == != in is``
 
---
+----
 
 Y ahora, un programa
 =====================
 
-- Abrir un editor (``gedit``, por ejemplo) y escribir una **función**
+Abrir un editor (``gedit``, por ejemplo) y escribir una **función**
 
 .. sourcecode:: python
 
@@ -286,13 +311,14 @@ Y ahora, un programa
 
     print alcuadrado(3)
 
-- Guardarlo como ``cuadrado.py`` y ejecutarlo::
+Guardarlo como ``cuadrado.py`` y ejecutarlo::
 
     $ python cuadrado.py
 
 ----
 
-Valores por *default* en las funciones:
+Puede haber valores por *default*
+=================================
 
 .. sourcecode:: python
 
@@ -302,6 +328,12 @@ Valores por *default* en las funciones:
 
     >>> potenciar(2, 3)
     8
+
+    def oracion(sujeto, verbo="corre", modificador="lento"):
+        return "%s %s %s" % (sujeto, verbo, modificador)
+
+    >>> oracion("El conejo", modificador="veloz")
+    'El conejo corre veloz'
 
 ----
 
@@ -338,8 +370,7 @@ Clases
             self.y = y
 
         def distancia(self):
-            """La hipotenusa. Pitágoras programaría Python """
-
+            """La hipotenusa. Pitágoras programaba Python"""
             x = self.x**2 + self.y**2
             return math.sqrt(x)
 
@@ -413,8 +444,8 @@ A dónde?
 - Peticiones y respuestas...
 - Entre un cliente y un servidor
 
-.. image: static/img/img_HTTP_request.png
-   :aling: center
+.. image:: static/img/img_HTTP_request.png
+   :align: center
 
 ----
 
@@ -447,6 +478,9 @@ Respuestas (*responses*)
 Entonces: Django!
 =================
 
+|
+|
+|
 
 .. image:: static/img/django.jpg
    :align: center
@@ -463,27 +497,22 @@ Claves
 * Excelente documentación
 * Baterías incluídas !
 
+----
+
 MVT (MCV)
 =========
 
-Modelos
--------
+**Modelos**
 
-Definición y manejo de los datos.
+    Definición y manejo de los datos. (Crear, Modificar, Guardar, etc)
 
-Crear, Modificar, Guardar, etc
+**Vistas**
 
+    Lógica de la aplicación. Reacciona con HTTP
 
-Vistas
-------
+**Templates**
 
-Lógica de la aplicación.
-Reacciona con HTTP
-
-Templates
----------
-
-Visualización de la información
+    Visualización de la información
 
 ----
 
@@ -506,22 +535,24 @@ Visualización de la información
 =========================
 
 - Objetivo: un sitio para manejar tickets (*bugs*, por ejemplo)
-- Lo llamaremos "La Tiquetera"
+- Lo llamaremos
+
+    **"La Tiquetera"**
 
 ----
 
 Comenzar un proyecto
 ====================
 
-Proyecto?
+Qué llama Django un Proyecto?
 
     Conjunto de aplicaciones y configuraciones para un sitio en particular
 
-::
+.. sourcecode:: bash
 
     $ django-admin.py startproject tiquetera
 
-.. image: static/img/project.png
+.. image:: static/img/project.png
    :align: center
 
 -----
@@ -529,15 +560,23 @@ Proyecto?
 Con una aplicación
 ==================
 
-Aplicación?:
+Y qué es una Aplicación ?
 
     - Una aplicación web que hace una tarea en particular (*weblog*, *encuesta*, etc)
     - Un proyecto puede tener muchas *apps*.
     - Una aplicación puede ser parte de distintos proyectos (son *pluggables*)
 
-::
+-----
+
+.. sourcecode:: bash
+
     $ cd tiquetera
     $ django-admin.py startproject tiquetera
+
+.. image:: static/img/app.png
+   :align: center
+
+
 
 ----
 
@@ -575,7 +614,8 @@ El archivo ``settings.py``:
 
 El nuestro
 ==========
-.. sourcecode: python
+
+.. sourcecode:: python
 
     DATABASES = {
     'default': {
@@ -593,13 +633,12 @@ El nuestro
 Volvamos a la tiquetera
 ========================
 
-Requerimientos
----------------
+**Requerimientos**
 
-- Un ticket tiene un #ID, un estado, una fecha, una título y descripción
-  y posiblemente un responsable
+- Un ticket tiene un **id**, un **estado**, una **fecha**, un
+  **título** y **descripción** y posiblemente un **responsable**
 - Queremos ver listados de tickets, su detalle, cargar nuevos,
-  cambiarles el estado, asignarles responsable.
+  cambiarles el estado, asignarles responsable, etc.
 
 ----
 
@@ -623,6 +662,7 @@ Modelando
         asignado_a = models.ForeignKey(User, null=True,
                               blank=True)
         estado = models.CharField(max_length=2, choices=ESTADOS)
+
 ----
 
 Construyamos la base
@@ -658,7 +698,8 @@ Construyamos la base
 Usando nuestros modelos interactivamente
 =========================================
 
-::
+.. sourcecode:: bash
+
     $ python manage.py shell
 
 .. sourcecode:: python
@@ -721,7 +762,8 @@ Admin (cont)
 Arrancamos el servidor de pruebas
 =================================
 
-::
+.. sourcecode:: bash
+
     $ python manage runserver
 
 - Y vamos en el navegador a
@@ -734,8 +776,7 @@ Arrancamos el servidor de pruebas
 Hagamos *nuestras* paginas
 ==========================
 
-Vistas
-------
+**Vistas**
 
 * Lógica de la aplicación
 * Función normal
