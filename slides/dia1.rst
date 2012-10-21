@@ -107,13 +107,13 @@ En serio, qué es Python ?
 
 * Un lenguaje de muy alto nivel
 * (muy) Fácil de aprender, con sintáxis legible y expresiva
-* Multiplataforma Multiparadigma
-* Interactivo, Interpretado y Dinámico (pero fuertemente tipado)
+* Multiplataforma, Multiparadigma (e Interactivo)
+* Interpretado y Dinámico (pero fuertemente tipado)
 * Extensible
 * Libre, Gratis y amigable comercialmente
 * Con las baterías incluídas (y grandes aplicaciones)
 * Con gran documentación
-* y una maravillosa comunidad de usuarios
+* y una maravillosa comunidad de usuarios (
 
 ----
 
@@ -412,8 +412,11 @@ Herencia
 
 ----
 
-Métodos especiales
+Métodos *mágicos*
 ===================
+
+- Empiezan y terminan con ``__`` (doble *underscore*)
+- Se usan indirectamente con operadores
 
 .. sourcecode:: python
 
@@ -490,7 +493,10 @@ Entonces: Django!
 Claves
 =======
 
-* Framework: Legos
+.. image:: static/img/legos.jpg
+   :align: right
+
+* Framework
 * DRY
 * MVC
 * Licencia BSD
@@ -848,14 +854,41 @@ Por ejemplo
 Templates
 =========
 
-* Balanace entre poder y simplicidad
+* Balance entre poder y simplicidad
 * Pensado para diseñadores
-* Similar a otros sistemas como Smarty
+* Las variables vienen en el contexto que envió la vista
+* ``{{ obj }} {{ obj.key }} {{ obj.atributo }} {{ obj.metodo }}``
+* Tags: lógica simple ``{%  %}``
+* Filtros: alteraciones  ``{{ X|filtro }}``
 
-Herramientas
-------------
+----
 
-Variables (viene de una vista)
+Ejemplo
+========
 
-* Tags: logica
-* Filtros: alteraciones
+.. sourcecode:: django
+
+    <h1>Listado de Tickets</h1>
+
+    <ul>
+    {% for ticket in lista_tickets %}
+    <li>
+      <a href="{{ ticket.get_absolute_url }}">
+        {{ ticket.title|upper }}
+      </a>
+    </li>
+    <p>{{ ticket.descripcion|truncatewords:"15" }}</p>
+    {% endfor %}
+    </ul>
+
+----
+
+Algunos tags importantes
+==========================
+
+* ``{% block nombre_bloque %}``: Porción *que puede redefinirse*
+* ``{% extends 'template_base.html' %}``: Herencia
+* ``{% include 'pedacito.html' %}``:
+
+----
+
