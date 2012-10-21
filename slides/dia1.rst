@@ -490,7 +490,7 @@ Entonces: Django!
 Claves
 =======
 
-* Framework: caja de legos!
+* Framework: Legos
 * DRY
 * MVC
 * Licencia BSD
@@ -719,7 +719,7 @@ Usando nuestros modelos interactivamente
 
     >>> Ticket.objects.filter(autor=usuario)
     [ticket]
-    >>> t = Ticket.objects.filter(autor=usuario)[0]
+    >>> t = Ticket.objects.filter(titulo__contains='bug')[0]
     >>> t.titulo
     'Un bug'
 
@@ -730,6 +730,7 @@ Usemos  Admin
 
 Interfaz ABM (CRUD)
 
+* Gratis
 * Muy configurable
 * Fácil de extender
 * ¡Pero no es la bala de plata!
@@ -783,3 +784,78 @@ Hagamos *nuestras* paginas
 * Argumento: Request
 * Valor de retorno: Response
 
+
+Vista Listado
+==============
+
+.. sourcecode:: python
+
+    def listar_tickets(request):
+        tickets = Ticket.objects.all()
+        return render(request, "ticket_listar.html", {
+                    "tickets": tickets
+                })
+
+``render()`` es un "shortcut".
+- Crea un *response* llenando un *template* con datos de *contexto*
+
+
+Vista Detalle
+==============
+
+.. sourcecode:: python
+
+    def detalle_ticket(request, id):
+        ticket = Ticket.objects.get(id=id)
+        return render(request, "ticket_detalle.html", {
+                    "ticket": ticket
+                })
+
+---
+
+Accediendo a una vista: URLs
+============================
+
+``urls.py`` relaciona *direcciones* con vistas
+
+* URLs limpias
+* Cualquier tipo de diseño
+* Basadas en *expresiones regulares*
+* Desacopladas
+
+----
+
+Por ejemplo
+===========
+
+.. sourcecode:: python
+
+    urlpatterns = patterns('',
+        url(r'^$',
+            'tiquetera.tickets.views.listar_tickets',
+            name='ticket-listado'),
+        url(r'^ticket/(?P<id>\d+)/$',
+            'tiquetera.tickets.views.detalle_ticket',
+            name='ticket-detalle'),
+        url(r'^admin/', include(admin.site.urls)),
+    )
+
+- ``(?P<id>\d+)`` es una *regex* que filtra sólo digitos
+- ``/ticket/1/`` invocará a ``detalle_ticket(request, id=1)``
+
+----
+
+Templates
+=========
+
+* Balanace entre poder y simplicidad
+* Pensado para diseñadores
+* Similar a otros sistemas como Smarty
+
+Herramientas
+------------
+
+Variables (viene de una vista)
+
+* Tags: logica
+* Filtros: alteraciones
