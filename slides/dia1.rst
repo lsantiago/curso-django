@@ -5,7 +5,7 @@ Django, el framework para perfeccionistas
 **Taller Introductorio**
 
 :autor: Martín Gaitán
-:conferencia: Atica iSummit 2012
+:evento: Atica / iSummit 2012
 :lugar: Loja, Ecuador
 :fecha: Lunes 22 de octubre, 2012
 
@@ -27,33 +27,35 @@ Quién
 - Miembro de Python Argentina (python.org.ar)
 - Creando Phasety (phasety.com) y trabajando en Machinalis (machinalis.com)
 
-    @tin_nqn_   gaitan@gmail.com  http://mgaitan.github.com
+|
+|    @tin_nqn_   \\   gaitan@gmail.com   \\   http://mgaitan.github.com
 
 ----
 
 Qué
 ======
 
-- Micro introduccion a Python
+- Mini introduccion a Python
 - Micro introducción a "la web"
 - Introducción a Django
 
     - Ideas generales
     - Modelos
+    - Admin
     - Vistas
+    - URLs
     - Templates
-    - URL
-    - Tests
+    - Formularios
 
 ----
 
 Cómo
 ======
 
-- Es un minicurso-taller
+- Es un taller
 - En los talleres nos engrasamos las manos **¡Eso es muy bueno!**
 
-    - Haremos un pequeño proyecto
+  - Haremos un pequeño proyecto
 
 - ¿Trabajamos en equipos ?
 - Más explicaciones que diapositivas
@@ -65,7 +67,6 @@ Warning
 ===========
 
     A veces hablo mucho. :-/
-
 
 ----
 
@@ -82,6 +83,16 @@ Este material está basado en trabajos de
 Bajo licencias Creative Commons by-sa
 
 **¡Gracias!**
+
+----
+
+Agradecimiento Especial
+========================
+
+- A la UTPL, por la invitación
+- A René Elilzalde y María del Carmen Cabrera,
+  por todas las gestiones que hicieron para mi
+  visita.
 
 ----
 
@@ -129,7 +140,7 @@ Quién lo usa
 ----
 
 En serio
-++++++++
+========
 
 - Google
 - NASA
@@ -153,10 +164,11 @@ Para qué sirve Python
 
 ----
 
-Tan fácil de aprender?
+¿Tan fácil de aprender?
 ========================
 
-- Podemos explorar la respuesta.
+Contestemos esa pregunta!
+
 - Ejecutar la consola interactiva
 
 .. sourcecode:: python
@@ -329,10 +341,10 @@ Puede haber valores por *default*
     >>> potenciar(2, 3)
     8
 
-    def oracion(sujeto, verbo="corre", modificador="lento"):
-        return "%s %s %s" % (sujeto, verbo, modificador)
+    def oracion(quien, que="corre", como="lento"):
+        return "%s %s %s" % (quien, que, como)
 
-    >>> oracion("El conejo", modificador="veloz")
+    >>> oracion("El conejo", como="veloz")
     'El conejo corre veloz'
 
 ----
@@ -356,7 +368,6 @@ Python es modular y tiene *espacios de nombre*
 Clases
 =======
 
-
 .. sourcecode:: python
 
     # posicion.py
@@ -370,7 +381,8 @@ Clases
             self.y = y
 
         def distancia(self):
-            """La hipotenusa. Pitágoras programaba Python"""
+            """La hipotenusa.
+               Pitágoras programaba Python"""
             x = self.x**2 + self.y**2
             return math.sqrt(x)
 
@@ -474,7 +486,7 @@ Respuestas (*responses*)
 
 - Hypertext Transfer? Ahora es cualquier cosa!
 
-  * html, json, fotos, videos de goles de Messi, etc.
+  * html, json, fotos, videos de goles de Boca, etc.
 
 ----
 
@@ -527,7 +539,7 @@ MVT (MCV)
 
 - Interacción con base de datos relacionales
 - Abstracción ORM
-- Interfaz CRUD automática
+- Interfaz ABM (*CRUD*) automática
 - Testing
 - Usuarios y autenticación
 - Manejo de formularios
@@ -550,7 +562,7 @@ MVT (MCV)
 Comenzar un proyecto
 ====================
 
-Qué llama Django un Proyecto?
+¿A Qué llama Django un Proyecto?
 
     Conjunto de aplicaciones y configuraciones para un sitio en particular
 
@@ -571,6 +583,8 @@ Y qué es una Aplicación ?
     - Una aplicación web que hace una tarea en particular (*weblog*, *encuesta*, etc)
     - Un proyecto puede tener muchas *apps*.
     - Una aplicación puede ser parte de distintos proyectos (son *pluggables*)
+
+    - Hay muchisimas apps listas para usar! djangopackages.com
 
 -----
 
@@ -771,7 +785,7 @@ Arrancamos el servidor de pruebas
 
 .. sourcecode:: bash
 
-    $ python manage runserver
+    $ python manage.py runserver
 
 - Y vamos en el navegador a
 
@@ -790,6 +804,7 @@ Hagamos *nuestras* paginas
 * Argumento: Request
 * Valor de retorno: Response
 
+----
 
 Vista Listado
 ==============
@@ -802,9 +817,10 @@ Vista Listado
                     "tickets": tickets
                 })
 
-``render()`` es un "shortcut".
+- ``render()`` es un "shortcut".
 - Crea un *response* llenando un *template* con datos de *contexto*
 
+----
 
 Vista Detalle
 ==============
@@ -817,7 +833,7 @@ Vista Detalle
                     "ticket": ticket
                 })
 
----
+----
 
 Accediendo a una vista: URLs
 ============================
@@ -887,17 +903,86 @@ Algunos ``tags`` importantes
 =============================
 
 * ``{% block nombre_bloque %}``
+
         Porción *que puede redefinirse*
 
 * ``{% extends 'template_base.html' %}``
+
         Herencia
 
 * ``{% include 'pedacito.html' %}``
-        incrustar fragmentos de contenido
+
+        Incrustar fragmentos
 
 ----
 
+Formularios
+===========
 
+- Django construye y valida formularios
+
+.. sourcecode:: python
+
+    from django import forms
+
+    class ContactForm(forms.Form):
+        asunto = forms.CharField(max_length=100)
+        mensaje = forms.CharField()
+        remitente = forms.EmailField()
+        cc_a_mi = forms.BooleanField(required=False)
+
+    >>> mi_form = ContactForm()
+    >>> mi_form.as_p()
+    >>> mi_form.is_valid()  # no porque está vacío!
+    >>>
+
+----
+
+Patrón típico
+=============
+
+.. sourcecode:: python
+
+    if request.method == "POST":
+       form = ContactForm(request.POST)
+       if form.is_valid():
+
+           # aqui usamos los datos validos
+           # que están en form.cleaned_data
+           # Ejemplo: mandamos el email
+
+           return redirect(...)
+    else:
+        form = ContactForm()
+
+    return render(request, "contact.html", {
+                "form": form,
+            })
+
+----
+
+Formularios para nuestros modelos
+==================================
+
+- Ya definimos el modelo
+- Quiero un formulario que lo represente (para crear o editar)
+- ¡No te repitas!
+
+.. sourcecode:: python
+
+    from django import forms
+    from models import Ticket
+
+    class TicketForm(forms.ModelForm):
+        class Meta:
+            model = Ticket
+
+----
+
+Más ?
+========
+
+**¡Nos vemos el miércoles!**
 
 
 
