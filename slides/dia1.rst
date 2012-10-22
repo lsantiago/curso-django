@@ -28,7 +28,7 @@ Quién
 - Creando Phasety (phasety.com) y trabajando en Machinalis (machinalis.com)
 
 |
-|    @tin_nqn_   \\   gaitan@gmail.com   \\   http://mgaitan.github.com
+|    @tin_nqn_   \\\\   gaitan@gmail.com   \\\\   http://mgaitan.github.com
 
 ----
 
@@ -137,6 +137,9 @@ Quién lo usa
 
     -- Lionel Messi
 
+.. image:: static/img/messi-ok.jpg
+   :scale: 70%
+
 ----
 
 En serio
@@ -146,7 +149,7 @@ En serio
 - NASA
 - Mozilla
 - Las empresas donde trabajo
-- Ustedes!
+- ¡Ustedes luego de este evento!
 
 ----
 
@@ -274,6 +277,25 @@ Diccionarios
 
 ----
 
+Conjuntos
+=========
+
+.. sourcecode:: python
+
+    >>> conjunto = {'Loja', 3, 3 }
+    >>> conjunto
+    set([3, 'Loja'])
+
+    >>> 'Loja' in conjunto
+    True
+
+    >>> conjunto.intersection({3})
+    set([3])
+
+    >>> conjunto.difference({3})
+    set(['Loja'])
+
+
 Bucles
 =======
 
@@ -346,6 +368,29 @@ Puede haber valores por *default*
 
     >>> oracion("El conejo", como="veloz")
     'El conejo corre veloz'
+
+----
+
+Cosas *pythonicas*
+===================
+
+- Desempaquetado y multiasignación
+
+.. sourcecode:: python
+
+    >>> elemento1, elemento2 = dos_elementos = ('Hola', 5)
+    >>> dos_elementos
+    ('Hola', 5)
+
+    >>> elemento2
+    5
+
+- Listas por comprensión
+
+.. sourcecode:: python
+
+    >>> [num**2 for num in range(10) if num % 2 == 0]
+    [0, 4, 16, 36, 64]
 
 ----
 
@@ -556,6 +601,8 @@ MVT (MCV)
 - Lo llamaremos
 
     **"La Tiquetera"**
+
+- Descargar: ``tiquetera.zip`` desde http://bit.ly/tiquetera
 
 ----
 
