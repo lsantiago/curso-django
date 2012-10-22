@@ -1031,8 +1031,14 @@ Más ?
 
 **¡Nos vemos el miércoles!**
 
+Mientras tanto
 
+    http://github.com/mgaitan/curso-django
 
+Y sumense a PyAr! Serán bienvenid@s
+
+    * http://www.python.org.ar
+    * Via IRC: #pyar en freenode.net
 
 
 
