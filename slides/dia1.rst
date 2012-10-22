@@ -883,12 +883,24 @@ Ejemplo
 
 ----
 
-Algunos tags importantes
-==========================
+Algunos ``tags`` importantes
+=============================
 
-* ``{% block nombre_bloque %}``: Porción *que puede redefinirse*
-* ``{% extends 'template_base.html' %}``: Herencia
-* ``{% include 'pedacito.html' %}``:
+* ``{% block nombre_bloque %}``
+        Porción *que puede redefinirse*
+
+* ``{% extends 'template_base.html' %}``
+        Herencia
+
+* ``{% include 'pedacito.html' %}``
+        incrustar fragmentos de contenido
 
 ----
+
+
+
+
+
+
+
 
