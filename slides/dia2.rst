@@ -22,7 +22,7 @@ Quién
 
 - Martín Gaitán
 - Ingeniero en Computación - Universidad Nacional de Córdoba, Argentina
-- Hincha de Boca Jr. (pero Fuerza Liga de Loja esta noche!)
+- Hincha de Boca Jr. (pero **Fuerza Liga de Loja esta noche!**)
 - Python desde 2007, Django desde 2010
 - Miembro de Python Argentina (python.org.ar)
 - Creando Phasety (phasety.com) y trabajando en Machinalis (machinalis.com)
@@ -172,8 +172,8 @@ Hagamos *nuestras* paginas
 
 ----
 
-Lo escencial
-============
+Un "Hola mundo"
+================
 
 .. sourcecode:: python
 
@@ -195,12 +195,12 @@ Lo escencial
 
 ----
 
-Pero hagamosló bien
-=====================
-
-- Vista listado (portada)
+Vista listado
+==============
 
 .. sourcecode:: python
+
+    from django.shortcuts import render, redirect
 
     def listar_tickets(request):
         tickets = Ticket.objects.all()
@@ -208,8 +208,9 @@ Pero hagamosló bien
                     "tickets": tickets
                 })
 
-- ``render()`` es un "shortcut".
+- ``render`` es un atajo.
 - Crea un *response* llenando un *template* con datos de *contexto*
+
 
 ----
 
@@ -224,10 +225,15 @@ Vista Detalle
                     "ticket": ticket
                 })
 
+
+- Qué pasaría si id es un número de ticket que no existe?
+- Otro shortcut: ``get_object_or_404(Ticket, id=id)``
+
+
 ----
 
-Accediendo a una vista: URLs
-============================
+Accediendo a las vistas: URLs
+==============================
 
 ``urls.py`` relaciona *direcciones* con vistas
 
@@ -235,6 +241,7 @@ Accediendo a una vista: URLs
 * Cualquier tipo de diseño
 * Basadas en *expresiones regulares*
 * Desacopladas
+
 
 ----
 
@@ -270,8 +277,8 @@ Templates
 
 ----
 
-Ejemplo
-========
+Template listado
+=================
 
 .. sourcecode:: django
 
@@ -299,11 +306,11 @@ Algunos ``tags`` importantes
 
 * ``{% extends 'template_base.html' %}``
 
-        Herencia
+        Herencia. Usar otro como base y redefinir bloques
 
 * ``{% include 'pedacito.html' %}``
 
-        Incrustar fragmentos
+        Incrustar fragmentos desde otros templates
 
 ----
 
@@ -325,10 +332,13 @@ Formularios
 
 -----
 
+Como funcionan?
+===============
+
 .. sourcecode:: python
 
     >>> contact_form = ContactForm()
-    >>> print contact_form.as_p()
+    >>> print contact_form.as_p()    # as
 
     >>> mi_form.is_valid()  # no porque está vacío!
     >>> datos = {'asunto': 'Curso', 'remitente': 'gaitan@gmail.com',
@@ -338,7 +348,7 @@ Formularios
 
 ----
 
-Patrón típico
+En una vista
 =============
 
 .. sourcecode:: python
@@ -352,6 +362,7 @@ Patrón típico
                # que están en form.cleaned_data
                # Ejemplo: mandamos el email
 
+
                return redirect(...)
         else:
             form = ContactForm()
@@ -363,7 +374,7 @@ Patrón típico
 -----
 
 Lo mismo pero más pro
-======================
+=========================
 
 .. sourcecode:: python
 
@@ -378,13 +389,57 @@ Lo mismo pero más pro
                     "form": form,
                 })
 
+
 ----
 
-Validaciones propias
-=====================
+Validación
+============
 
-    clean()
+Además de las validaciones automáticas (dadas por el tipo de Field)
+Django soporta validaciones y "limpiezas" propias.
 
+- Pueden ser *por campo*
+- O de todo el formulario (valiciones que dependen de multiples valores)
+
+-------
+
+Ejemplo
+========
+
+- Sólo correos de *@utpl.edu.ec* se pueden contactar.
+
+.. sourcecode:: python
+
+    class ContactForm(forms.Form):
+        ...
+
+        def clean_remitente(self):
+            dato = self.cleaned_data['remitente']
+            if not dato.endswith('utpl.edu.ec'):
+                raise forms.ValidationError("Usa tu correo oficial")
+
+        # acá podria manipular. pero siempre hay que devolver el dato
+        return dato
+
+Otro ejemplo
+==============
+
+Si el mensaje no es de René, exigir que sea largo
+
+.. sourcecode:: python
+
+
+    def clean(self):
+        cleaned_data = super(ContactForm, self).clean()
+        remitente = cleaned_data.get("remitente")
+        mensaje = cleaned_data.get("mensaje")
+
+        if (remitente != 'rrelizalde@utpl.edu.ec' and
+             len(mensaje) < 50):
+            raise forms.ValidationError("Su mensaje es demasiado breve,
+                    "y usted no es René.")
+        # Siempre devolver el diccionario de datos limpios
+        return cleaned_data
 
 ----
 
@@ -412,7 +467,6 @@ Y la vista editar
 
 .. sourcecode:: python
 
-
     def editar_ticket(request, id):
         ticket = Ticket.objects.get(id=id)
         if request.method == "POST":
@@ -431,33 +485,110 @@ Y la vista editar
 
 ----
 
-Revisemos las vistas
-=====================
+Vistas genéricas
+================
 
 - Buscar datos de la base (muchos, uno) y..
 
-    - mostrarlos a traves de un template
+    - mostrarmos a traves de un template
     - editarlos con un formulario
 
 - Suena bastante típico
-- ¡No te repitas!
+- Recuerda: **¡No te repitas!**
 
-    class TicketDetailView(DetailView):
-        model = Ticket
+.. sourcecode:: python
+
+    from django.views.generic import ListView
 
     class TicketListView(ListView):
         model = Ticket
+        template_name = "ticket_listar.html"    # default: ticket_list.html
+        context_object_name = "tickets"     # default: object_list
 
-    # paginar
+    listar_tickets = TicketListView.as_view()
 
 
-# Context request
+Detalles
+========
+
+- A diferencia de un vista común, las genéricas son clases.
+- Para llamarlas desde una URL hay que usar ``as_view()``
+- Para redefinir el *listado* (queryset) se define ``queryset`` o
+  ``get_queryset()`` para filtrados dinámicos
+- Paginacion gratis con ``paginate_by``
+
 
 South
 ======
 
-- Problema: migración de esquema
+- Problema: nuestro proyecto evoluciona
+- Django crea tablas nuevas pero no altera existentes
+- South: manejo de migraciones
+- Ejemplo: queremos agregarle una fecha de vencimiento opcional
+  a nuestro modelo ``Ticket``
 
+
+----
+
+South 2
+========
+
+- ``syncdb`` fallaría. Hay que usar South.
+
+    - Lo instalamos (ejemplo: ``pip install south``)
+    - Agregamos ``south`` a ``INSTALLED_APPS``
+    - ``syncdb``
+    - ``manage.py convert_to_south tickets``
+
+- Crea un archivo ``tickets/migrations/0001_initial.py``
+- Listo, ahora podemos hacer nuestas migraciones
+
+----
+
+South 3
+========
+
+- Modificamos nuestro modelo agregando el campo ``vencimiento``
+
+.. sourcecode:: python
+
+    class Ticket(models.Model):
+        (...)
+        vencimiento = models.DateField(null=True, blank=True)
+
+- Creamos la migracion con ``manage.py schemamigration tickets --auto``
+- Crea una migracion ``0002_auto__add_field_ticket_vencimiento.py``
+- La aplicamos con ``manage.py migrate tickets``
+
+----
+
+
+Más ?
+========
+
+La documentación de Django es buenísima!
+
+    * http://docs.djangoproject.com
+
+Pueden consultarme
+
+|
+|    @tin_nqn_   \\   gaitan@gmail.com   \\   http://mgaitan.github.com
+
+----
+
+Y sumense a Python Argentina
+============================
+
+* http://www.python.org.ar
+* Via IRC: #pyar en freenode.net
+
+.. raw:: html
+
+    <iframe width="560" height="315" src="http://www.youtube.com/embed/n899NT8JTSY" frameborder="0" allowfullscreen></iframe>
+
+
+**Gracias por la participación**
 
 
 

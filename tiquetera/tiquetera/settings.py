@@ -120,6 +120,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'tiquetera.tickets',
+    'south'
 )
 
 # A sample logging configuration. The only tangible logging

@@ -2,11 +2,23 @@ from django.shortcuts import render, redirect
 from models import Proyecto, Ticket
 from forms import TicketForm
 
+from django.views.generic import ListView
+
+
+"""
 def listar_tickets(request):
     tickets = Ticket.objects.all()
     return render(request, "ticket_listar.html", {
                 "tickets": tickets
             })
+"""
+
+class TicketListView(ListView):
+    model = Ticket
+    template_name = "ticket_listar.html"
+
+listar_tickets = TicketListView.as_view()
+
 
 def detalle_ticket(request, id):
     ticket = Ticket.objects.get(id=id)
