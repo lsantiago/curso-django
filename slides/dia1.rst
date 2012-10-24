@@ -295,6 +295,7 @@ Conjuntos
     >>> conjunto.difference({3})
     set(['Loja'])
 
+-----
 
 Bucles
 =======
@@ -638,7 +639,7 @@ Y qué es una Aplicación ?
 .. sourcecode:: bash
 
     $ cd tiquetera
-    $ django-admin.py startproject tiquetera
+    $ django-admin.py startapp tickets
 
 .. image:: static/img/app.png
    :align: center
