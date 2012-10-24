@@ -1382,7 +1382,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              1/23
+              1/41
             </aside>
           </footer>
         </div>
@@ -1399,7 +1399,7 @@ ul {
             <section><ul class="simple">
 <li>Martín Gaitán</li>
 <li>Ingeniero en Computación - Universidad Nacional de Córdoba, Argentina</li>
-<li>Hincha de Boca Jr. (pero Fuerza Liga de Loja esta noche!)</li>
+<li>Hincha de Boca Jr. (pero <strong>Fuerza Liga de Loja esta noche!</strong>)</li>
 <li>Python desde 2007, Django desde 2010</li>
 <li>Miembro de Python Argentina (python.org.ar)</li>
 <li>Creando Phasety (phasety.com) y trabajando en Machinalis (machinalis.com)</li>
@@ -1407,7 +1407,7 @@ ul {
 
 <br />
 
-&#64;tin_nqn_   \   <a class="reference external" href="mailto:gaitan&#64;gmail.com">gaitan&#64;gmail.com</a>   \   <a class="reference external" href="http://mgaitan.github.com">http://mgaitan.github.com</a></section>
+&#64;tin_nqn_   \\   <a class="reference external" href="mailto:gaitan&#64;gmail.com">gaitan&#64;gmail.com</a>   \\   <a class="reference external" href="http://mgaitan.github.com">http://mgaitan.github.com</a></section>
             
           </div>
           <div class="presenter_notes">
@@ -1423,7 +1423,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              2/23
+              2/41
             </aside>
           </footer>
         </div>
@@ -1439,14 +1439,11 @@ ul {
             
             <section><ul class="simple">
 <li>Repaso de conceptos clave</li>
-<li>URLs</li>
 <li>Vistas</li>
-<li>Validación de formularios</li>
+<li>URLs</li>
+<li>Formularios y validación</li>
 <li>Vistas genéricas</li>
-<li>Tests</li>
-<li>Permisos y autenticación</li>
 <li>South</li>
-<li>Ajax (?)</li>
 </ul></section>
             
           </div>
@@ -1463,7 +1460,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              3/23
+              3/41
             </aside>
           </footer>
         </div>
@@ -1499,7 +1496,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              4/23
+              4/41
             </aside>
           </footer>
         </div>
@@ -1513,90 +1510,21 @@ ul {
             <header><h1>Repaso 1</h1></header>
             
             
-            <section><ul>
-<li><p class="first">Números:</p>
-<blockquote>
-<ul class="simple">
-<li><tt class="docutils literal">3 + 4.4, <span class="pre">int(1j**2),</span> 10 % 1</tt></li>
-<li>Tambien existe <tt class="docutils literal">decimal</tt> y en Django <tt class="docutils literal">DecimalField</tt></li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">Listas</p>
-<blockquote>
-<ul class="simple">
-<li><tt class="docutils literal">a = [4.0, 'Hola', <span class="pre">Posicion()]</span></tt></li>
-<li><tt class="docutils literal">a[1] == 'Hola'&nbsp; # devuelve True</tt></li>
-<li><tt class="docutils literal"><span class="pre">range(-2,</span> 4)</tt></li>
-<li><tt class="docutils literal">[p.x for p in posiciones if p.y &gt; 0]</tt></li>
-</ul>
-</blockquote>
-</li>
-<li><p class="first">Diccionarios:</p>
-<blockquote>
-<ul class="simple">
-<li><tt class="docutils literal">hinchada = {'Martín': 'Boca Jr', 'Ramiro': 'Barcelona'}</tt></li>
-<li><tt class="docutils literal">hinchada.keys() , <span class="pre">hinchada['Maria']</span> = 'Liga de Loja'</tt></li>
-</ul>
-</blockquote>
-</li>
-</ul></section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="dia2.rst">dia2.rst</a>
-            </aside>
-            
-            <aside class="page_number">
-              5/23
-            </aside>
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: dia2.rst -->
-      <div class="slide-wrapper">
-        <div class="slide">
-          <div class="inner">
-            
-            <header><h1>Repaso 2</h1></header>
-            
-            
             <section><ul class="simple">
-<li>Funciones</li>
+<li>Números:</li>
 </ul>
-<pre><span class="k">def</span> <span class="nf">potenciar</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">exp</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">n</span><span class="o">**</span><span class="n">exp</span>
+<pre><span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span> <span class="o">+</span> <span class="mf">4.4</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1j</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="mi">10</span> <span class="o">%</span> <span class="mi">1</span>
 </pre>
 <ul class="simple">
-<li>Tambien: <tt class="docutils literal">potenciar = lambda n, exp: <span class="pre">n**exp</span></tt></li>
-<li>Clases:</li>
+<li>Tambien existe <tt class="docutils literal">decimal</tt> y en Django <tt class="docutils literal">DecimalField</tt></li>
+<li>Listas</li>
 </ul>
-<pre><span class="k">class</span> <span class="nc">MiModelo</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Models</span><span class="p">):</span>
-    <span class="k">pass</span>
-</pre>
-<ul class="simple">
-<li>Tip: soporta multiherencia <tt class="docutils literal">Hijo(Padre1, Padre2)</tt></li>
-</ul>
-
-
-<h1>Repaso 3</h1>
-<p>Control:</p>
-<pre><span class="c"># iteracion</span>
-<span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">Tickets</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
-    <span class="k">print</span> <span class="n">ticket</span><span class="o">.</span><span class="n">titulo</span>
-
-<span class="c"># condicional</span>
-<span class="k">if</span> <span class="n">ticket</span><span class="o">.</span><span class="n">vencimiento</span> <span class="o">&gt;=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">():</span>
-    <span class="n">alarma</span><span class="o">.</span><span class="n">sonar</span><span class="p">()</span>
+<pre><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="s">&#39;Hola&#39;</span><span class="p">,</span> <span class="n">Posicion</span><span class="p">()]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;Hola&#39;</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">posiciones</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
 </pre></section>
             
           </div>
@@ -1613,7 +1541,139 @@ ul {
             </aside>
             
             <aside class="page_number">
-              6/23
+              5/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Repaso 2</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Diccionarios:</li>
+</ul>
+<pre><span class="o">&gt;&gt;&gt;</span> <span class="n">hinchada</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Martín&#39;</span><span class="p">:</span> <span class="s">&#39;Boca Jr&#39;</span><span class="p">,</span>
+                <span class="s">&#39;Ramiro&#39;</span><span class="p">:</span> <span class="s">&#39;Barcelona&#39;</span><span class="p">,</span>
+                <span class="s">&#39;René&#39;</span><span class="p">:</span> <span class="s">&#39;Barcelona&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">hinchada</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>       <span class="c"># keys()</span>
+<span class="p">[</span><span class="s">&#39;Boca Jr&#39;</span><span class="p">,</span> <span class="s">&#39;Barcelona&#39;</span><span class="p">,</span> <span class="s">&#39;Barcelona&#39;</span><span class="p">]</span>
+</pre>
+<ul class="simple">
+<li>Conjuntos:</li>
+</ul>
+<pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">set</span><span class="p">([</span><span class="s">&#39;Hola&#39;</span><span class="p">,</span> <span class="s">&#39;Chau&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;Chau&#39;</span><span class="p">])</span>
+<span class="nb">set</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="s">&#39;Hola&#39;</span><span class="p">,</span> <span class="s">&#39;Chau&#39;</span><span class="p">])</span>
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Repaso 3</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Funciones</li>
+</ul>
+<pre><span class="k">def</span> <span class="nf">potenciar</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">exp</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n</span><span class="o">**</span><span class="n">exp</span>
+
+<span class="c"># otra forma (inline)</span>
+<span class="n">potenciar</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">,</span> <span class="n">exp</span><span class="p">:</span> <span class="n">n</span><span class="o">**</span><span class="n">exp</span>
+</pre>
+<ul class="simple">
+<li>Clases:</li>
+</ul>
+<pre><span class="k">class</span> <span class="nc">MiModelo</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Models</span><span class="p">):</span>
+</pre>
+<ul class="simple">
+<li>Soporta multiherencia</li>
+</ul>
+<pre><span class="k">class</span> <span class="nc">Hijo</span><span class="p">(</span><span class="n">Padre1</span><span class="p">,</span> <span class="n">Padre2</span><span class="p">):</span>
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Repaso 4</h1></header>
+            
+            
+            <section><p>Control:</p>
+<pre><span class="c"># iteracion</span>
+<span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">Tickets</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+    <span class="k">print</span> <span class="n">ticket</span><span class="o">.</span><span class="n">titulo</span>
+
+<span class="c"># condicional</span>
+<span class="k">if</span> <span class="n">ticket</span><span class="o">.</span><span class="n">vencimiento</span> <span class="o">&gt;=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">():</span>
+    <span class="n">alarma</span><span class="o">.</span><span class="n">sonar</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;todo está bien, pelado!&quot;</span>
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/41
             </aside>
           </footer>
         </div>
@@ -1647,7 +1707,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              7/23
+              9/41
             </aside>
           </footer>
         </div>
@@ -1689,7 +1749,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              8/23
+              10/41
             </aside>
           </footer>
         </div>
@@ -1708,12 +1768,38 @@ ul {
 <li>Creamos nuestro <tt class="docutils literal">admin.py</tt></li>
 <li>Declaramos <tt class="docutils literal"><span class="pre">url(r'^admin/',</span> <span class="pre">include(admin.site.urls)),</span></tt></li>
 <li>Usar!</li>
-</ul>
-<p>---</p>
-
-
-<h1>Hagamos <em>nuestras</em> paginas</h1>
-<p><strong>Vistas</strong></p>
+<li>Pero recuerden: No es la bala de plata</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Hagamos <em>nuestras</em> paginas</h1></header>
+            
+            
+            <section><p><strong>Vistas</strong></p>
 <ul class="simple">
 <li>Lógica de la aplicación</li>
 <li>Función normal</li>
@@ -1735,7 +1821,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              9/23
+              12/41
             </aside>
           </footer>
         </div>
@@ -1746,7 +1832,7 @@ ul {
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Lo escencial</h1></header>
+            <header><h1>Un &quot;Hola mundo&quot;</h1></header>
             
             
             <section><pre><span class="c">#   views.py</span>
@@ -1781,7 +1867,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              10/23
+              13/41
             </aside>
           </footer>
         </div>
@@ -1792,20 +1878,19 @@ ul {
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Pero hagamosló bien</h1></header>
+            <header><h1>Vista listado</h1></header>
             
             
-            <section><ul class="simple">
-<li>Vista listado (portada)</li>
-</ul>
-<pre><span class="k">def</span> <span class="nf">listar_tickets</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+            <section><pre><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+
+<span class="k">def</span> <span class="nf">listar_tickets</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="n">tickets</span> <span class="o">=</span> <span class="n">Ticket</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&quot;ticket_listar.html&quot;</span><span class="p">,</span> <span class="p">{</span>
                 <span class="s">&quot;tickets&quot;</span><span class="p">:</span> <span class="n">tickets</span>
             <span class="p">})</span>
 </pre>
 <ul class="simple">
-<li><tt class="docutils literal">render()</tt> es un &quot;shortcut&quot;.</li>
+<li><tt class="docutils literal">render</tt> es un atajo.</li>
 <li>Crea un <em>response</em> llenando un <em>template</em> con datos de <em>contexto</em></li>
 </ul></section>
             
@@ -1823,7 +1908,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              11/23
+              14/41
             </aside>
           </footer>
         </div>
@@ -1842,7 +1927,11 @@ ul {
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&quot;ticket_detalle.html&quot;</span><span class="p">,</span> <span class="p">{</span>
                 <span class="s">&quot;ticket&quot;</span><span class="p">:</span> <span class="n">ticket</span>
             <span class="p">})</span>
-</pre></section>
+</pre>
+<ul class="simple">
+<li>Qué pasaría si id es un número de ticket que no existe?</li>
+<li>Otro shortcut: <tt class="docutils literal">get_object_or_404(Ticket, id=id)</tt></li>
+</ul></section>
             
           </div>
           <div class="presenter_notes">
@@ -1858,7 +1947,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              12/23
+              15/41
             </aside>
           </footer>
         </div>
@@ -1869,7 +1958,7 @@ ul {
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Accediendo a una vista: URLs</h1></header>
+            <header><h1>Accediendo a las vistas: URLs</h1></header>
             
             
             <section><p><tt class="docutils literal">urls.py</tt> relaciona <em>direcciones</em> con vistas</p>
@@ -1894,7 +1983,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              13/23
+              16/41
             </aside>
           </footer>
         </div>
@@ -1937,7 +2026,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              14/23
+              17/41
             </aside>
           </footer>
         </div>
@@ -1974,7 +2063,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              15/23
+              18/41
             </aside>
           </footer>
         </div>
@@ -1985,7 +2074,7 @@ ul {
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Ejemplo</h1></header>
+            <header><h1>Template listado</h1></header>
             
             
             <section><pre><span class="x">&lt;h1&gt;Listado de Tickets&lt;/h1&gt;</span>
@@ -2000,7 +2089,10 @@ ul {
 <span class="x">&lt;p&gt;</span><span class="cp">{{</span> <span class="nv">ticket.descripcion</span><span class="o">|</span><span class="nf">truncatewords</span><span class="s2">:&quot;15&quot;</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">&lt;/ul&gt;</span>
-</pre></section>
+</pre>
+<ul class="simple">
+<li>Ver también <tt class="docutils literal">ticket_detalle.html</tt></li>
+</ul></section>
             
           </div>
           <div class="presenter_notes">
@@ -2016,7 +2108,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              16/23
+              19/41
             </aside>
           </footer>
         </div>
@@ -2038,12 +2130,17 @@ ul {
 </li>
 <li><p class="first"><tt class="docutils literal">{% extends 'template_base.html' %}</tt></p>
 <blockquote>
-<p>Herencia</p>
+<p>Herencia. Usar otro como base y redefinir bloques</p>
 </blockquote>
 </li>
 <li><p class="first"><tt class="docutils literal">{% include 'pedacito.html' %}</tt></p>
 <blockquote>
-<p>Incrustar fragmentos</p>
+<p>Incrustar fragmentos desde otros templates</p>
+</blockquote>
+</li>
+<li><p class="first"><tt class="docutils literal">{% url nombre_url parametro1, ... %}</tt></p>
+<blockquote>
+<p>Construir la url mediante su nombre. Igual a <tt class="docutils literal">reverse()</tt></p>
 </blockquote>
 </li>
 </ul></section>
@@ -2062,7 +2159,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              17/23
+              20/41
             </aside>
           </footer>
         </div>
@@ -2102,7 +2199,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              18/23
+              21/41
             </aside>
           </footer>
         </div>
@@ -2113,9 +2210,11 @@ ul {
         <div class="slide">
           <div class="inner">
             
+            <header><h1>Como funcionan?</h1></header>
+            
             
             <section><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">contact_form</span> <span class="o">=</span> <span class="n">ContactForm</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">contact_form</span><span class="o">.</span><span class="n">as_p</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">contact_form</span><span class="o">.</span><span class="n">as_p</span><span class="p">()</span>    <span class="c"># as</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">mi_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>  <span class="c"># no porque está vacío!</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">datos</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;asunto&#39;</span><span class="p">:</span> <span class="s">&#39;Curso&#39;</span><span class="p">,</span> <span class="s">&#39;remitente&#39;</span><span class="p">:</span> <span class="s">&#39;gaitan@gmail.com&#39;</span><span class="p">,</span>
@@ -2138,7 +2237,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              19/23
+              22/41
             </aside>
           </footer>
         </div>
@@ -2149,14 +2248,13 @@ ul {
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Patrón típico</h1></header>
+            <header><h1>En una vista</h1></header>
             
             
             <section><pre><span class="k">def</span> <span class="nf">contacto</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&quot;POST&quot;</span><span class="p">:</span>
        <span class="n">form</span> <span class="o">=</span> <span class="n">ContactForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
-
            <span class="c"># aqui usamos los datos validos</span>
            <span class="c"># que están en form.cleaned_data</span>
            <span class="c"># Ejemplo: mandamos el email</span>
@@ -2184,7 +2282,49 @@ ul {
             </aside>
             
             <aside class="page_number">
-              20/23
+              23/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Opcional: como mandar emails ?</h1></header>
+            
+            
+            <section><pre><span class="c"># en la vista</span>
+<span class="kn">from</span> <span class="nn">django.core.mail</span> <span class="kn">import</span> <span class="n">send_mail</span>
+
+<span class="n">send_mail</span><span class="p">(</span><span class="s">&#39;Asunto aqui&#39;</span><span class="p">,</span>
+         <span class="s">&#39;cuerpo del mensaje&#39;</span><span class="p">,</span>
+         <span class="s">&#39;remitente@ejemplo.com&#39;</span><span class="p">,</span>
+         <span class="p">[</span><span class="s">&#39;para@ejemplo.com&#39;</span><span class="p">],</span> <span class="n">fail_silently</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c"># Trampita: que envie el email a la pantalla.</span>
+<span class="c"># en settings.py</span>
+<span class="n">EMAIL_BACKEND</span> <span class="o">=</span> \
+<span class="s">&#39;django.core.mail.backends.console.EmailBackend&#39;</span>
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              24/41
             </aside>
           </footer>
         </div>
@@ -2199,13 +2339,14 @@ ul {
             
             
             <section><pre><span class="k">def</span> <span class="nf">contacto</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-   <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span> <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&quot;POST&quot;</span> <span class="k">else</span> <span class="bp">None</span>
+   <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span> <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&quot;POST&quot;</span> \
+                       <span class="k">else</span> <span class="bp">None</span>
    <span class="n">form</span> <span class="o">=</span> <span class="n">ContactForm</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
-       <span class="c"># aqui usamos los datos validos</span>
+       <span class="c"># aqui usamos los datos validos en send_mail</span>
        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&quot;contact.html&quot;</span><span class="p">,</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&quot;contact.html&quot;</span><span class="p">,</span> <span class="p">{</span>
                 <span class="s">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">,</span>
             <span class="p">})</span>
 </pre></section>
@@ -2224,7 +2365,7 @@ ul {
             </aside>
             
             <aside class="page_number">
-              21/23
+              25/41
             </aside>
           </footer>
         </div>
@@ -2235,11 +2376,15 @@ ul {
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Haciendo validaciones propia</h1></header>
+            <header><h1>Validación</h1></header>
             
             
-            <section><blockquote>
-clean()</blockquote></section>
+            <section><p>Además de las validaciones automáticas (dadas por el tipo de Field)
+Django soporta validaciones y &quot;limpiezas&quot; propias.</p>
+<ul class="simple">
+<li>Pueden ser <em>por campo</em></li>
+<li>O de todo el formulario (valiciones que dependen de multiples valores)</li>
+</ul></section>
             
           </div>
           <div class="presenter_notes">
@@ -2255,7 +2400,94 @@ clean()</blockquote></section>
             </aside>
             
             <aside class="page_number">
-              22/23
+              26/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Ejemplo</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Sólo correos de <em>&#64;utpl.edu.ec</em> se pueden contactar.</li>
+</ul>
+<pre><span class="k">class</span> <span class="nc">ContactForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">clean_remitente</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dato</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s">&#39;remitente&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">dato</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;utpl.edu.ec&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s">&quot;Usa tu correo oficial&quot;</span><span class="p">)</span>
+
+    <span class="c"># acá podria manipular. pero siempre hay que devolver el dato</span>
+    <span class="k">return</span> <span class="n">dato</span>
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              27/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Otro ejemplo</h1></header>
+            
+            
+            <section><p>Si el mensaje no es de René, exigir que sea largo</p>
+<pre><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">cleaned_data</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">ContactForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span>
+    <span class="n">remitente</span> <span class="o">=</span> <span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;remitente&quot;</span><span class="p">)</span>
+    <span class="n">mensaje</span> <span class="o">=</span> <span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;mensaje&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">remitente</span> <span class="o">!=</span> <span class="s">&#39;rrelizalde@utpl.edu.ec&#39;</span> <span class="ow">and</span>
+         <span class="nb">len</span><span class="p">(</span><span class="n">mensaje</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">forms</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span>
+                <span class="s">&quot;Su mensaje es demasiado breve&quot;</span> \
+                <span class="s">&quot;y usted no es René.&quot;</span><span class="p">)</span>
+    <span class="c"># Siempre devolver el diccionario</span>
+    <span class="c"># de datos limpios</span>
+    <span class="k">return</span> <span class="n">cleaned_data</span>
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              28/41
             </aside>
           </footer>
         </div>
@@ -2296,7 +2528,477 @@ clean()</blockquote></section>
             </aside>
             
             <aside class="page_number">
-              23/23
+              29/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Y la vista editar</h1></header>
+            
+            
+            <section><pre><span class="k">def</span> <span class="nf">editar_ticket</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+    <span class="n">ticket</span> <span class="o">=</span> <span class="n">Ticket</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&quot;POST&quot;</span><span class="p">:</span>
+
+      <span class="n">form</span> <span class="o">=</span> <span class="n">TicketForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">instance</span><span class="o">=</span><span class="n">ticket</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+          <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+          <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">&quot;ticket-detalle&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">TicketForm</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">ticket</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&quot;ticket_editar.html&quot;</span><span class="p">,</span> <span class="p">{</span>
+                <span class="s">&quot;ticket&quot;</span><span class="p">:</span> <span class="n">ticket</span><span class="p">,</span>
+                <span class="s">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">,</span>
+            <span class="p">})</span>
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              30/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Vistas genéricas</h1></header>
+            
+            
+            <section><ul>
+<li><p class="first">Buscar datos de la base (muchos, uno) y..</p>
+<blockquote>
+<ul class="simple">
+<li>mostrarmos a traves de un template</li>
+<li>editarlos con un formulario</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">Suena bastante típico</p>
+</li>
+<li><p class="first">Recuerda: <strong>¡No te repitas!</strong></p>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              31/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Vista listado en <em>generic views</em></h1></header>
+            
+            
+            <section><pre><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">ListView</span>
+
+<span class="k">class</span> <span class="nc">TicketListView</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Ticket</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">&quot;ticket_listar.html&quot;</span>
+    <span class="c"># template default: ticket_list.html</span>
+    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s">&quot;tickets&quot;</span>
+    <span class="c"># default: object_list</span>
+
+<span class="n">listar_tickets</span> <span class="o">=</span> <span class="n">TicketListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">()</span>
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              32/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Detalles</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>A diferencia de un vista común, las genéricas son clases.</li>
+<li>Para llamarlas desde una URL hay que usar <tt class="docutils literal">as_view()</tt></li>
+<li>Para redefinir el <em>listado</em> (queryset) se define <tt class="docutils literal">queryset</tt> o
+<tt class="docutils literal">get_queryset()</tt> para filtrados dinámicos</li>
+<li>Paginacion gratis con <tt class="docutils literal">paginate_by</tt></li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              33/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Ejercicios 1</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Crear una vista que liste todos los tickets pertenecientes a un proyecto</li>
+<li>Usar el slug en la url. Ejemplo: <tt class="docutils literal"><span class="pre">/curso-django/</span></tt></li>
+<li>Tip: regex <tt class="docutils literal"><span class="pre">r'^(?P&lt;slug&gt;[-\w]+)$',</span></tt></li>
+<li>Crear una vista que liste todos los tickets asignados a un usuario</li>
+<li>Url <tt class="docutils literal"><span class="pre">r'^responsable/(?P&lt;username&gt;\w+)$'</span></tt></li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              34/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Ejercicios 2</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Crear una vista que liste todos los tickets por estado:</li>
+<li>URL <tt class="docutils literal"><span class="pre">r'^estado/(?P&lt;estado&gt;[AB|CE|CU]$)'</span></tt></li>
+<li>Hacer un <tt class="docutils literal">clean</tt> en el formulario que autoseleccione el
+User con id=1 si el proyecto tiene id=1.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              35/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>South</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Problema: nuestro proyecto evoluciona</li>
+<li>Django crea tablas nuevas pero no altera existentes</li>
+<li>South: manejo de migraciones</li>
+<li>Ejemplo: queremos agregarle una fecha de vencimiento opcional
+a nuestro modelo <tt class="docutils literal">Ticket</tt></li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              36/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>South 2</h1></header>
+            
+            
+            <section><ul>
+<li><p class="first"><tt class="docutils literal">syncdb</tt> fallaría. Hay que usar South.</p>
+<blockquote>
+<ul class="simple">
+<li>Lo instalamos (ejemplo: <tt class="docutils literal">pip install south</tt>)</li>
+<li>Agregamos <tt class="docutils literal">south</tt> a <tt class="docutils literal">INSTALLED_APPS</tt></li>
+<li><tt class="docutils literal">syncdb</tt></li>
+<li><tt class="docutils literal">manage.py convert_to_south tickets</tt></li>
+</ul>
+</blockquote>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              37/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Que sucedió?</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Creó un archivo <tt class="docutils literal">tickets/migrations/0001_initial.py</tt></li>
+<li>y <em>aplicó</em> esa migración</li>
+<li>Listo, ahora podemos hacer migraciones</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              38/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>South 3</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Modificamos nuestro modelo agregando el campo <tt class="docutils literal">vencimiento</tt></li>
+</ul>
+<pre><span class="k">class</span> <span class="nc">Ticket</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="n">vencimiento</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre>
+<ul>
+<li><p class="first">Creamos la migracion:</p>
+<pre class="literal-block">
+$ manage.py schemamigration tickets --auto
+</pre>
+</li>
+<li><p class="first">Crea una migracion <tt class="docutils literal">0002_auto__add_field_ticket_vencimiento.py</tt></p>
+</li>
+<li><p class="first">La aplicamos:</p>
+<pre class="literal-block">
+$ manage.py migrate tickets
+</pre>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              39/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Más ?</h1></header>
+            
+            
+            <section><p>La documentación de Django es buenísima!</p>
+<blockquote>
+<ul class="simple">
+<li><a class="reference external" href="http://docs.djangoproject.com">http://docs.djangoproject.com</a></li>
+</ul>
+</blockquote>
+<p>Pueden consultarme</p>
+
+<br />
+
+&#64;tin_nqn_   \   <a class="reference external" href="mailto:gaitan&#64;gmail.com">gaitan&#64;gmail.com</a>   \   <a class="reference external" href="http://mgaitan.github.com">http://mgaitan.github.com</a></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              40/41
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: dia2.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Y sumense a Python Argentina</h1></header>
+            
+            
+            <section><ul class="simple">
+<li><a class="reference external" href="http://www.python.org.ar">http://www.python.org.ar</a></li>
+<li>Via IRC: #pyar en freenode.net</li>
+</ul>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/n899NT8JTSY" frameborder="0" allowfullscreen></iframe><p><strong>Gracias por la participación!</strong></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="dia2.rst">dia2.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              41/41
             </aside>
           </footer>
         </div>
@@ -2347,104 +3049,212 @@ clean()</blockquote></section>
       
       
       <tr id="toc-row-7">
-        <th><a href="#slide7">Volvamos a Django</a></th>
+        <th><a href="#slide7">Repaso 3</a></th>
         <td><a href="#slide7">7</a></td>
       </tr>
       
       
       <tr id="toc-row-8">
-        <th><a href="#slide8">Vimos</a></th>
+        <th><a href="#slide8">Repaso 4</a></th>
         <td><a href="#slide8">8</a></td>
       </tr>
       
       
       <tr id="toc-row-9">
-        <th><a href="#slide9">Admin</a></th>
+        <th><a href="#slide9">Volvamos a Django</a></th>
         <td><a href="#slide9">9</a></td>
       </tr>
       
       
       <tr id="toc-row-10">
-        <th><a href="#slide10">Lo escencial</a></th>
+        <th><a href="#slide10">Vimos</a></th>
         <td><a href="#slide10">10</a></td>
       </tr>
       
       
       <tr id="toc-row-11">
-        <th><a href="#slide11">Pero hagamosló bien</a></th>
+        <th><a href="#slide11">Admin</a></th>
         <td><a href="#slide11">11</a></td>
       </tr>
       
       
       <tr id="toc-row-12">
-        <th><a href="#slide12">Vista Detalle</a></th>
+        <th><a href="#slide12">Hagamos <em>nuestras</em> paginas</a></th>
         <td><a href="#slide12">12</a></td>
       </tr>
       
       
       <tr id="toc-row-13">
-        <th><a href="#slide13">Accediendo a una vista: URLs</a></th>
+        <th><a href="#slide13">Un &quot;Hola mundo&quot;</a></th>
         <td><a href="#slide13">13</a></td>
       </tr>
       
       
       <tr id="toc-row-14">
-        <th><a href="#slide14">Por ejemplo</a></th>
+        <th><a href="#slide14">Vista listado</a></th>
         <td><a href="#slide14">14</a></td>
       </tr>
       
       
       <tr id="toc-row-15">
-        <th><a href="#slide15">Templates</a></th>
+        <th><a href="#slide15">Vista Detalle</a></th>
         <td><a href="#slide15">15</a></td>
       </tr>
       
       
       <tr id="toc-row-16">
-        <th><a href="#slide16">Ejemplo</a></th>
+        <th><a href="#slide16">Accediendo a las vistas: URLs</a></th>
         <td><a href="#slide16">16</a></td>
       </tr>
       
       
       <tr id="toc-row-17">
-        <th><a href="#slide17">Algunos <tt class="docutils literal">tags</tt> importantes</a></th>
+        <th><a href="#slide17">Por ejemplo</a></th>
         <td><a href="#slide17">17</a></td>
       </tr>
       
       
       <tr id="toc-row-18">
-        <th><a href="#slide18">Formularios</a></th>
+        <th><a href="#slide18">Templates</a></th>
         <td><a href="#slide18">18</a></td>
       </tr>
       
       
       <tr id="toc-row-19">
-        <th><a href="#slide19">-</a></th>
+        <th><a href="#slide19">Template listado</a></th>
         <td><a href="#slide19">19</a></td>
       </tr>
       
       
       <tr id="toc-row-20">
-        <th><a href="#slide20">Patrón típico</a></th>
+        <th><a href="#slide20">Algunos <tt class="docutils literal">tags</tt> importantes</a></th>
         <td><a href="#slide20">20</a></td>
       </tr>
       
       
       <tr id="toc-row-21">
-        <th><a href="#slide21">Lo mismo pero más pro</a></th>
+        <th><a href="#slide21">Formularios</a></th>
         <td><a href="#slide21">21</a></td>
       </tr>
       
       
       <tr id="toc-row-22">
-        <th><a href="#slide22">Haciendo validaciones propia</a></th>
+        <th><a href="#slide22">Como funcionan?</a></th>
         <td><a href="#slide22">22</a></td>
       </tr>
       
       
       <tr id="toc-row-23">
-        <th><a href="#slide23">Formularios para nuestros modelos</a></th>
+        <th><a href="#slide23">En una vista</a></th>
         <td><a href="#slide23">23</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-24">
+        <th><a href="#slide24">Opcional: como mandar emails ?</a></th>
+        <td><a href="#slide24">24</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-25">
+        <th><a href="#slide25">Lo mismo pero más pro</a></th>
+        <td><a href="#slide25">25</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-26">
+        <th><a href="#slide26">Validación</a></th>
+        <td><a href="#slide26">26</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-27">
+        <th><a href="#slide27">Ejemplo</a></th>
+        <td><a href="#slide27">27</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-28">
+        <th><a href="#slide28">Otro ejemplo</a></th>
+        <td><a href="#slide28">28</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-29">
+        <th><a href="#slide29">Formularios para nuestros modelos</a></th>
+        <td><a href="#slide29">29</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-30">
+        <th><a href="#slide30">Y la vista editar</a></th>
+        <td><a href="#slide30">30</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-31">
+        <th><a href="#slide31">Vistas genéricas</a></th>
+        <td><a href="#slide31">31</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-32">
+        <th><a href="#slide32">Vista listado en <em>generic views</em></a></th>
+        <td><a href="#slide32">32</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-33">
+        <th><a href="#slide33">Detalles</a></th>
+        <td><a href="#slide33">33</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-34">
+        <th><a href="#slide34">Ejercicios 1</a></th>
+        <td><a href="#slide34">34</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-35">
+        <th><a href="#slide35">Ejercicios 2</a></th>
+        <td><a href="#slide35">35</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-36">
+        <th><a href="#slide36">South</a></th>
+        <td><a href="#slide36">36</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-37">
+        <th><a href="#slide37">South 2</a></th>
+        <td><a href="#slide37">37</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-38">
+        <th><a href="#slide38">Que sucedió?</a></th>
+        <td><a href="#slide38">38</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-39">
+        <th><a href="#slide39">South 3</a></th>
+        <td><a href="#slide39">39</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-40">
+        <th><a href="#slide40">Más ?</a></th>
+        <td><a href="#slide40">40</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-41">
+        <th><a href="#slide41">Y sumense a Python Argentina</a></th>
+        <td><a href="#slide41">41</a></td>
       </tr>
       
       

@@ -28,7 +28,7 @@ Quién
 - Creando Phasety (phasety.com) y trabajando en Machinalis (machinalis.com)
 
 |
-|    @tin_nqn_   \\   gaitan@gmail.com   \\   http://mgaitan.github.com
+|    @tin_nqn_   \\\\   gaitan@gmail.com   \\\\   http://mgaitan.github.com
 
 ----
 
@@ -36,13 +36,11 @@ Qué
 ======
 
 - Repaso de conceptos clave
-- URLs
 - Vistas
-- Validación de formularios
+- URLs
+- Formularios y validación
 - Vistas genéricas
-- Tests
 - South
-- Ajax (?)
 
 ----
 
@@ -62,25 +60,48 @@ Repaso 1
 
 - Números:
 
-    - ``3 + 4.4, int(1j**2), 10 % 1``
-    - Tambien existe ``decimal`` y en Django ``DecimalField``
+.. sourcecode:: python
+
+    >>> 3 + 4.4, int(1j**2), 10 % 1
+
+- Tambien existe ``decimal`` y en Django ``DecimalField``
 
 - Listas
 
-    - ``a = [4.0, 'Hola', Posicion()]``
-    - ``a[1] == 'Hola'  # devuelve True``
-    - ``range(-2, 4)``
-    - ``[p.x for p in posiciones if p.y > 0]``
+.. sourcecode:: python
 
-- Diccionarios:
-
-    - ``hinchada = {'Martín': 'Boca Jr', 'Ramiro': 'Barcelona'}``
-    - ``hinchada.keys() , hinchada['Maria'] = 'Liga de Loja'``
-
+    >>> a = [4.0, 'Hola', Posicion()]
+    >>> a[1] == 'Hola'
+    True
+    >>> range(-2, 3)
+    [-2, -1, 0, 1, 2]
+    >>> [p.x for p in posiciones if p.y > 0]
 
 ----
 
 Repaso 2
+=========
+
+- Diccionarios:
+
+.. sourcecode:: python
+
+    >>> hinchada = {'Martín': 'Boca Jr',
+                    'Ramiro': 'Barcelona',
+                    'René': 'Barcelona'}
+    >>> hinchada.values()       # keys()
+    ['Boca Jr', 'Barcelona', 'Barcelona']
+
+- Conjuntos:
+
+.. sourcecode:: python
+
+    >>> set(['Hola', 'Chau', 4, 'Chau'])
+    set([4, 'Hola', 'Chau'])
+
+----
+
+Repaso 3
 ===========
 
 - Funciones
@@ -90,18 +111,24 @@ Repaso 2
     def potenciar(n, exp=2):
         return n**exp
 
-- Tambien: ``potenciar = lambda n, exp: n**exp``
+    # otra forma (inline)
+    potenciar = lambda n, exp: n**exp
 
 - Clases:
 
 .. sourcecode:: python
 
     class MiModelo(models.Models):
-        pass
 
-- Tip: soporta multiherencia ``Hijo(Padre1, Padre2)``
+- Soporta multiherencia
 
-Repaso 3
+.. sourcecode:: python
+
+    class Hijo(Padre1, Padre2):
+
+-----
+
+Repaso 4
 ========
 
 Control:
@@ -115,6 +142,8 @@ Control:
     # condicional
     if ticket.vencimiento >= datetime.now():
         alarma.sonar()
+    else:
+        print "todo está bien, pelado!"
 
 
 -----
@@ -157,8 +186,9 @@ Admin
 - Declaramos ``url(r'^admin/', include(admin.site.urls)),``
 - Usar!
 
+- Pero recuerden: No es la bala de plata
 
----
+----
 
 Hagamos *nuestras* paginas
 ==========================
@@ -295,6 +325,8 @@ Template listado
     {% endfor %}
     </ul>
 
+- Ver también ``ticket_detalle.html``
+
 ----
 
 Algunos ``tags`` importantes
@@ -311,6 +343,10 @@ Algunos ``tags`` importantes
 * ``{% include 'pedacito.html' %}``
 
         Incrustar fragmentos desde otros templates
+
+* ``{% url nombre_url parametro1, ... %}``
+
+        Construir la url mediante su nombre. Igual a ``reverse()``
 
 ----
 
@@ -357,11 +393,9 @@ En una vista
         if request.method == "POST":
            form = ContactForm(request.POST)
            if form.is_valid():
-
                # aqui usamos los datos validos
                # que están en form.cleaned_data
                # Ejemplo: mandamos el email
-
 
                return redirect(...)
         else:
@@ -373,19 +407,40 @@ En una vista
 
 -----
 
+Opcional: como mandar emails ?
+===============================
+
+.. sourcecode:: python
+
+    # en la vista
+    from django.core.mail import send_mail
+
+    send_mail('Asunto aqui',
+             'cuerpo del mensaje',
+             'remitente@ejemplo.com',
+             ['para@ejemplo.com'], fail_silently=False)
+
+    # Trampita: que envie el email a la pantalla.
+    # en settings.py
+    EMAIL_BACKEND = \
+    'django.core.mail.backends.console.EmailBackend'
+
+----
+
 Lo mismo pero más pro
 =========================
 
 .. sourcecode:: python
 
     def contacto(request):
-       data = request.POST if request.method == "POST" else None
+       data = request.POST if request.method == "POST" \
+                           else None
        form = ContactForm(data)
        if form.is_valid():
-           # aqui usamos los datos validos
+           # aqui usamos los datos validos en send_mail
            return redirect(...)
 
-        return render(request, "contact.html", {
+       return render(request, "contact.html", {
                     "form": form,
                 })
 
@@ -421,6 +476,8 @@ Ejemplo
         # acá podria manipular. pero siempre hay que devolver el dato
         return dato
 
+-----
+
 Otro ejemplo
 ==============
 
@@ -436,9 +493,11 @@ Si el mensaje no es de René, exigir que sea largo
 
         if (remitente != 'rrelizalde@utpl.edu.ec' and
              len(mensaje) < 50):
-            raise forms.ValidationError("Su mensaje es demasiado breve,
+            raise forms.ValidationError(
+                    "Su mensaje es demasiado breve" \
                     "y usted no es René.")
-        # Siempre devolver el diccionario de datos limpios
+        # Siempre devolver el diccionario
+        # de datos limpios
         return cleaned_data
 
 ----
@@ -496,17 +555,25 @@ Vistas genéricas
 - Suena bastante típico
 - Recuerda: **¡No te repitas!**
 
+-----
+
+Vista listado en *generic views*
+=================================
+
 .. sourcecode:: python
 
     from django.views.generic import ListView
 
     class TicketListView(ListView):
         model = Ticket
-        template_name = "ticket_listar.html"    # default: ticket_list.html
-        context_object_name = "tickets"     # default: object_list
+        template_name = "ticket_listar.html"
+        # template default: ticket_list.html
+        context_object_name = "tickets"
+        # default: object_list
 
     listar_tickets = TicketListView.as_view()
 
+----
 
 Detalles
 ========
@@ -517,6 +584,30 @@ Detalles
   ``get_queryset()`` para filtrados dinámicos
 - Paginacion gratis con ``paginate_by``
 
+----
+
+Ejercicios 1
+=============
+
+- Crear una vista que liste todos los tickets pertenecientes a un proyecto
+- Usar el slug en la url. Ejemplo: ``/curso-django/``
+- Tip: regex ``r'^(?P<slug>[-\w]+)$',``
+
+- Crear una vista que liste todos los tickets asignados a un usuario
+- Url ``r'^responsable/(?P<username>\w+)$'``
+
+----
+
+Ejercicios 2
+==============
+
+- Crear una vista que liste todos los tickets por estado:
+- URL ``r'^estado/(?P<estado>[AB|CE|CU]$)'``
+
+- Hacer un ``clean`` en el formulario que autoseleccione el
+  User con id=1 si el proyecto tiene id=1.
+
+------
 
 South
 ======
@@ -540,8 +631,14 @@ South 2
     - ``syncdb``
     - ``manage.py convert_to_south tickets``
 
-- Crea un archivo ``tickets/migrations/0001_initial.py``
-- Listo, ahora podemos hacer nuestas migraciones
+------
+
+Que sucedió?
+=============
+
+- Creó un archivo ``tickets/migrations/0001_initial.py``
+- y *aplicó* esa migración
+- Listo, ahora podemos hacer migraciones
 
 ----
 
@@ -556,9 +653,14 @@ South 3
         (...)
         vencimiento = models.DateField(null=True, blank=True)
 
-- Creamos la migracion con ``manage.py schemamigration tickets --auto``
+- Creamos la migracion::
+
+    $ manage.py schemamigration tickets --auto
+
 - Crea una migracion ``0002_auto__add_field_ticket_vencimiento.py``
-- La aplicamos con ``manage.py migrate tickets``
+- La aplicamos::
+
+    $ manage.py migrate tickets
 
 ----
 
@@ -588,7 +690,7 @@ Y sumense a Python Argentina
     <iframe width="560" height="315" src="http://www.youtube.com/embed/n899NT8JTSY" frameborder="0" allowfullscreen></iframe>
 
 
-**Gracias por la participación**
+**Gracias por la participación!**
 
 
 
