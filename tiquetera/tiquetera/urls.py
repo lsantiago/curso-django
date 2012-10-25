@@ -14,4 +14,6 @@ urlpatterns = patterns('',
         'tiquetera.tickets.views.editar_ticket',
         name='ticket-editar'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^contacto', 'tiquetera.tickets.views.contact'),
+
 )

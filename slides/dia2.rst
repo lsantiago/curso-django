@@ -2,12 +2,12 @@
 Django, el framework para perfeccionistas
 ==========================================
 
-**Taller Intermedio**
+**Taller Intermedio/Avanzado**
 
 :autor: Martín Gaitán
 :evento: iSummit 2012
 :lugar: Loja, Ecuador
-:fecha: Miéroles 24 de octubre, 2012
+:fecha: Miércoles 24 de octubre, 2012
 
 |
 |
