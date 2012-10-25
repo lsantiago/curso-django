@@ -23,7 +23,7 @@ class Ticket(models.Model):
                                    related_name="tickets_asignados")
     estado = models.CharField(max_length=2, choices=ESTADOS,
                               default="AB")
-    vencimiento = models.DateField(null=True, blank=True)
+    #vencimiento = models.DateField(null=True, blank=True)
 
     def __unicode__(self):
         return u"#%d: %s" % (self.id, self.titulo)
