@@ -16,13 +16,13 @@ Ecuador.
 |
 |
 
-.. image:: slides/static/img/cc_by_sa-3.png
+.. image:: http://mgaitan.github.com/curso-django/slides/static/img/cc_by_sa-3.png
 
 
 Dia 1
 ======
 
-`Diapositivas del dia 1 <http://mgaitan.github.com/curso-django/dia1.html>`_
+`Diapositivas del dia 1 <http://mgaitan.github.com/curso-django/slides/dia1.html>`_
 
 - Mini introduccion a Python
 - Micro introducción a "la web"
@@ -39,7 +39,7 @@ Dia 1
 Dia 2
 ======
 
-`Diapositivas del dia 2 <http://mgaitan.github.com/curso-django/dia2.html>`_
+`Diapositivas del dia 2 <http://mgaitan.github.com/curso-django/slides/dia2.html>`_
 
 - Repaso de conceptos clave
 - Vistas
