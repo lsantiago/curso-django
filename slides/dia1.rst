@@ -90,7 +90,7 @@ Agradecimiento Especial
 ========================
 
 - A la UTPL, por la invitación
-- A René Elilzalde y María del Carmen Cabrera,
+- A René Elizalde y María del Carmen Cabrera,
   por todas las gestiones que hicieron para mi
   visita.
 
